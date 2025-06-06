@@ -83,7 +83,7 @@
             transition: color 0.3s;
         }
         .socials-vertical a:hover {
-            color: #ff4c2b;
+            color: #fff;
         }
 
         /* Hero Section */
@@ -152,6 +152,33 @@
             50% { opacity: 0; }
         }
 
+         /* Download Buttons */
+        .download-buttons {
+            margin-top: 30px;
+            display: flex;
+            gap: 20px; /* Space between buttons */
+            flex-wrap: wrap; /* Allow buttons to wrap on smaller screens */
+            justify-content: flex-start; /* Align buttons to start */
+        }
+
+        .download-buttons .btn {
+            background-color: #ff4c2b;
+            color: #0f0f0f;
+            padding: 12px 25px;
+            border-radius: 50px; /* Fully rounded buttons */
+            font-weight: 700;
+            font-size: 14px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            transition: background-color 0.3s ease, transform 0.2s ease;
+            box-shadow: 0 4px 15px rgba(255, 76, 43, 0.4); /* Subtle shadow */
+        }
+
+        .download-buttons .btn:hover {
+            background-color: #ff6e4a; /* Slightly lighter on hover */
+            transform: translateY(-2px); /* Slight lift effect */
+        }
+
         /* Eye Section */
         .eyes {
             width: 100%;
@@ -217,7 +244,9 @@
         }
 
         /* Skills */
-        
+        .logo-heading {
+          display: none;
+        }
         .logo-grid {
             display: grid;
             grid-template-columns: repeat(3, 1fr); /* Default 3 columns */
@@ -263,9 +292,6 @@
             .logo-grid {
                 grid-template-columns: repeat(3, 1fr); /* 3 columns for medium screens */
             }
-            .eyes {
-              display: none; /* Hide eyes on medium screens */
-            }
         }
 
         @media (max-width: 768px) {
@@ -306,25 +332,25 @@
             .subtext {
                 font-size: 15px; /* Slightly smaller font for subtext */
             }
+            .logo-heading {
+              display: block; /* Show logo heading on mobile */
+                font-size: 1rem; /* Smaller logo heading */
+                font-weight: 700;
+                margin-top: 40px; /* Add space above logo grid */
+            }
             .logo-grid {
                 grid-template-columns: repeat(3, 1fr); /* Force 3 columns on small mobile */
                 padding: 20px 0; /* Adjust padding */
-                margin-top: 40px; /* Add space above logo grid */
-            }
-            .eye {
-                width: 65px; /* Smaller eyes for mobile */
-                height: 65px;
-            }
-            .pupil {
-                width: 30px; /* Smaller pupils */
-                height: 30px;
             }
             .eyes {
-                column-gap: 10px; /* Reduce gap between eyes */
+              display: none; /* Hide eyes on medium screens */
             }
             .background-spread {
                 /* Reduce the scale of the background-spread for mobile */
                 transition: transform 0.6s ease-out, opacity 0.4s ease;
+            }
+            .download-buttons {
+                justify-content: center; /* Center buttons */
             }
         }
 
@@ -363,8 +389,8 @@
         <nav>
             <div class="logo">Alyanna Cabrera</div>
             <ul class="nav-vertical">
-                <li><a href="#">ABOUT</a></li>
-                <li><a href="#">WORK</a></li>
+                <li><a href="#" class="active">ABOUT</a></li>
+                <li><a href="#">PROJECTS</a></li>
                 <li><a href="#">CONTACT</a></li>
             </ul>
         </nav>
@@ -375,7 +401,11 @@
                 <p class="subtext">
                     Driven by design. Focused on code. I'm building my path as a UI/UX designer and developer.
                 </p>
+                <div class="download-buttons">
+                    <a href="/path/to/your/cv.pdf" download class="btn">Download CV</a>
+                </div>
             </div>
+            <div class="logo-heading">Tech Stack</div>
             <div class="logo-grid">
                 <div class="logo" data-color="#e34f26"><img src="html-logo.png" alt="HTML"></div>
                 <div class="logo" data-color="#264de4"><img src="css-logo.png" alt="CSS"></div>
@@ -423,9 +453,9 @@
 
         // Define phrases to be typed. Text is plain for typing effect.
         const phrases = [
-            { text: 'Fail early.' },
-            { text: 'Learn faster.' },
-            { text: 'Win always.' }
+            { text: 'Code Clean.' },
+            { text: 'Think Visually.' },
+            { text: 'Build Better.' }
         ];
 
         let phraseIndex = 0;      // Current phrase in the `phrases` array
