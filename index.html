@@ -351,6 +351,7 @@
                 padding: 20px; /* Reduce container padding on mobile */
             }
             nav {
+                margin-bottom: 40px;
                 flex-direction: column; /* Stack nav items */
                 align-items: center; /* Center logo and nav links */
             }
@@ -682,7 +683,11 @@
 
                     // Show hero and eyes sections (using their original display properties)
                     heroSection.style.display = 'flex';
-                    eyesSection.style.display = 'flex';
+                    if (window.matchMedia('(max-width: 768px)').matches) {
+                        eyesSection.style.display = 'none';
+                    } else {
+                        eyesSection.style.display = 'flex';
+                    }
 
                     // Hide the project content area
                     projectContentArea.style.display = 'none';
