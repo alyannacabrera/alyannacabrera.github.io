@@ -1,0 +1,483 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Creative Portfolio</title>
+  <link href="https://fonts.googleapis.com/css2?family=General+Sans:wght@400;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+  <style>
+    /* Reset & Font */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+body {
+  font-family: 'General Sans', sans-serif;
+  background-color: #0f0f0f;
+  color: #e5e5e5;
+  overflow-x: hidden;
+  transition: background-color 0.5s ease;
+}
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+/* Layout */
+.container {
+  padding: 40px;
+  max-width: 1400px;
+  margin: auto;
+  position: relative;
+}
+nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-bottom: 80px;
+}
+.logo {
+  color: #e5e5e5;
+  font-weight: 700;
+  font-size: 18px;
+}
+.nav-vertical {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 20px;
+}
+.nav-vertical li a {
+  font-weight: 400;
+  font-size: 14px;
+  color: #e5e5e5;
+  letter-spacing: 2px;
+  transition: color 0.3s;
+}
+.nav-vertical li a:hover {
+  color: #ff4c2b;
+}
+.nav-vertical li a.active {
+  color: #ff4c2b;
+  font-weight: 700;
+}
+
+/* Socials Vertical */
+.socials-vertical {
+  position: fixed;
+  top: 50%;
+  left: 30px;
+  transform: translateY(-50%);
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+.socials-vertical a {
+  font-size: 16px;
+  color: #aaa;
+  transition: color 0.3s;
+}
+.socials-vertical a:hover {
+  color: #ff4c2b;
+}
+
+/* Hero Section */
+.hero {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+}
+.text-section {
+  flex: 1;
+  max-width: 60%;
+}
+.headline {
+  font-size: 5vw;
+  font-weight: 700;
+  letter-spacing: -1px;
+  line-height: 1.1;
+  text-transform: uppercase;
+}
+.highlight-circle {
+  color: #0f0f0f;
+  background: #ff4c2b;
+  padding: 0.2em 0.4em;
+  border-radius: 50%;
+  display: inline-block;
+  position: relative;
+  z-index: 1;
+}
+.year {
+  display: inline-block;
+  margin-top: 10px;
+}
+.subtext {
+  margin-top: 20px;
+  color: #aaa;
+  max-width: 500px;
+  font-size: 16px;
+}
+
+/* Custom styles for the gradient text */
+.gradient-text {
+    background: linear-gradient(to right, #ff4c2b, #ff7e5f, #ffffff);
+    -webkit-background-clip: text; /* Clip background to text shape for Webkit browsers */
+    background-clip: text; /* Clip background to text shape */
+    color: transparent; /* Make text transparent to show the background gradient */
+    display: inline-block; /* Required for background-clip to work reliably */
+}
+
+/* Custom styles for the blinking cursor in the typing effect */
+.typing-cursor {
+    display: inline-block;
+    width: 0.1em; /* Width of the cursor */
+    height: 1.2em; /* Ensure cursor has height matching line height */
+    background-color: #f5f5f7; /* Explicitly set cursor color to the darker end of the gradient for visibility */
+    animation: blink 0.7s infinite;
+    vertical-align: bottom; /* Align cursor to the bottom of the text */
+    margin-left: 2px; /* Small space after text */
+}
+
+@keyframes blink {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0; }
+}
+
+/* Eye Section */
+.eyes {
+  width: 100%;
+  /* height: 200px; */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: row;
+  column-gap: 20px;
+  position: fixed;
+  bottom: 20px; 
+}
+.eye {
+  width: 85px;
+  height: 85px;
+  border-radius: 100%;
+  background-color: #fff;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.pupil {
+  width: 40px;
+  height: 40px;
+  border-radius: 101px;
+  background-color: #000;
+}
+
+/* Image Section */
+.image-section {
+  flex: 1;
+  text-align: right;
+}
+.image-section img {
+  width: 320px;
+  border-radius: 50%;
+  /* filter: grayscale(100%) contrast(110%); */
+  animation: fadeIn 2s ease forwards;
+}
+
+/* About Section */
+.about {
+  margin-top: 120px;
+  font-size: 2rem;
+  max-width: 800px;
+}
+.about .highlight {
+  color: #ff4c2b;
+}
+
+/* Animation */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(40px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Skills */
+.logo-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+  padding: 40px;
+  justify-items: center;
+  align-items: center;
+  z-index: 2;
+  position: relative;
+}
+.logo {
+  width: 80px;
+  height: 80px;
+  cursor: pointer;
+  transition: transform 0.3s ease;
+}
+.logo img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+.logo:hover {
+  transform: scale(1.2);
+}
+.background-spread {
+  position: fixed;
+  border-radius: 50%;
+  transform: scale(0);
+  width: 100px;
+  height: 100px;
+  background-color: transparent;
+  pointer-events: none;
+  z-index: -1;
+  transition: transform 0.8s ease-out, background-color 0.3s;
+  opacity: 0.8;
+}
+
+
+/* Responsive */
+@media (max-width: 768px) {
+  .hero {
+    flex-direction: column;
+    text-align: center;
+  }
+  .text-section,
+  .image-section {
+    max-width: 100%;
+  }
+  .image-section {
+    margin-top: 40px;
+  }
+  .nav-vertical {
+    position: absolute;
+    top: 40px;
+    right: 40px;
+  }
+  .socials-vertical {
+    left: 10px;
+  }
+}
+
+  </style>
+</head>
+<body>
+
+  <div class="socials-vertical">
+  <a href="https://www.linkedin.com/in/yourprofile" target="_blank" aria-label="LinkedIn">
+    <i class="fab fa-linkedin-in"></i>
+  </a>
+    <a href="https://x.com/yourprofile" target="_blank" aria-label="Github">
+    <i class="fab fa-github"></i>
+  </a>
+</div>
+
+
+  <div class="container">
+    <nav>
+      <div class="logo">Alyanna Cabrera</div>
+      <ul class="nav-vertical">
+        <li><a href="#">ABOUT</a></li>
+        <li><a href="#">WORK</a></li>
+        <li><a href="#">CONTACT</a></li>
+      </ul>
+    </nav>
+
+    <header class="hero">
+      <div class="text-section">
+        <h1 class="headline"></h1>
+        <p class="subtext">
+          Driven by design. Focused on code. I'm building my path as a UI/UX designer and developer.
+        </p>
+      </div>
+      <!-- <div class="image-section">
+        <img src="profpic.jpg" alt="Profile" />
+      </div> -->
+      <div class="logo-grid">
+        <div class="logo" data-color="#e34f26"><img src="html-logo.png" alt="HTML"></div>
+        <div class="logo" data-color="#264de4"><img src="css-logo.png" alt="CSS"></div>
+        <div class="logo" data-color="#f7df1e"><img src="js-logo.png" alt="JavaScript"></div>
+        <div class="logo" data-color="#007396"><img src="java-logo.png" alt="Java"></div>
+        <div class="logo" data-color="#00599c"><img src="cpp-logo.png" alt="C++"></div>
+        <div class="logo" data-color="#239120"><img src="csharp-logo.png" alt="C#"></div>
+        <div class="logo" data-color="#339933"><img src="nodejs-logo.png" alt="Node.js"></div>
+        <div class="logo" data-color="#3776ab"><img src="python-logo.png" alt="Python"></div>
+        <div class="logo" data-color="#e38c00"><img src="sql-logo.png" alt="SQL"></div>
+      </div>
+</div>
+
+    </header>
+    <div class="eyes">
+  <div class="eye">
+    <div class="pupil"></div>
+  </div>
+  <div class="eye">
+    <div class="pupil"></div>
+  </div>
+</div>
+  </div>
+  <div class="background-spread"></div>
+
+</body>
+<script>
+  const pupils = document.querySelectorAll(".eye .pupil");
+window.addEventListener("mousemove", (e) => {
+  pupils.forEach((pupil) => {
+    // get x and y postion of cursor
+    var rect = pupil.getBoundingClientRect();
+    var x = (e.pageX - rect.left) / 30 + "px";
+    var y = (e.pageY - rect.top) / 30 + "px";
+    pupil.style.transform = "translate3d(" + x + "," + y + ", 0px)";
+  });
+});
+
+document.addEventListener('DOMContentLoaded', () => {
+  // Typing effect
+  const headlineElement = document.querySelector('.headline');
+            if (!headlineElement) return;
+
+            // Define the phrases as plain text
+            const phrases = [
+                { text: 'Fail early.' },
+                { text: 'Learn faster.' },
+                { text: 'Win always.' }
+            ];
+
+            let phraseIndex = 0;      // Current main phrase index
+            let charIndex = 0;        // Current character index within the current phrase's plain text
+            let isDeleting = false;   // Flag to indicate if text is being erased
+
+            // Speeds (milliseconds)
+            const typingSpeed = 80;
+            const erasingSpeed = 50;
+            const pauseAfterType = 1500; // Pause after typing a phrase
+            const pauseAfterErase = 500; // Pause after erasing a phrase
+
+            // Create cursor element once and reuse it
+            const cursorElement = document.createElement('span');
+            cursorElement.classList.add('typing-cursor');
+
+            headlineElement.innerHTML = ''; // Clear initial content to prepare for typing
+
+            function typeErase() {
+                const currentPhraseData = phrases[phraseIndex];
+                const currentText = currentPhraseData.text;
+
+                let displayContent = ''; // The plain text content to display
+
+                if (!isDeleting) { // Typing logic
+                    if (charIndex < currentText.length) {
+                        // Type one character
+                        displayContent = currentText.substring(0, charIndex + 1);
+                        charIndex++;
+                        setTimeout(typeErase, typingSpeed);
+                    } else {
+                        // Current phrase is fully typed
+                        isDeleting = true;
+                        setTimeout(typeErase, pauseAfterType); // Pause before starting erase
+                        return; // Exit to prevent immediate erasing
+                    }
+                } else { // Erasing logic
+                    if (charIndex > 0) {
+                        // Erase one character
+                        displayContent = currentText.substring(0, charIndex - 1);
+                        charIndex--;
+                        setTimeout(typeErase, erasingSpeed);
+                    } else {
+                        // Current phrase is fully erased
+                        isDeleting = false;
+                        phraseIndex = (phraseIndex + 1) % phrases.length; // Move to next main phrase, loop if at end
+                        setTimeout(typeErase, pauseAfterErase); // Pause before typing next phrase
+                        return; // Exit to prevent immediate typing
+                    }
+                }
+
+                // Apply the gradient class to the entire currently displayed text
+                let htmlToDisplay = '';
+                if (displayContent.length > 0 || (isDeleting && charIndex > 0)) {
+                    htmlToDisplay = `<span class="gradient-text">${displayContent}</span>`;
+                }
+
+                headlineElement.innerHTML = htmlToDisplay + cursorElement.outerHTML;
+
+                // If the content is completely empty and not deleting, just show the cursor
+                if (htmlToDisplay === '' && !isDeleting && charIndex === 0) {
+                    headlineElement.innerHTML = cursorElement.outerHTML;
+                }
+            }
+
+            typeErase(); // Start the typing/erasing effect
+  // Logo hover effect
+  const logos = document.querySelectorAll('.logo-grid .logo');
+  const ink = document.querySelector('.background-spread');
+  const body = document.body;
+  const defaultColor = '#0f0f0f';
+
+  let resetTimeout;
+  let activeColor = null;
+
+  logos.forEach(logo => {
+    const color = logo.getAttribute('data-color');
+
+    logo.addEventListener('mouseenter', (e) => {
+      // Clear pending reset
+      clearTimeout(resetTimeout);
+
+      activeColor = color; // Store current color
+
+      // Get center position of logo
+      const rect = logo.getBoundingClientRect();
+      const x = rect.left + rect.width / 2;
+      const y = rect.top + rect.height / 2;
+
+      // Setup and trigger animation
+      ink.style.left = `${x - 50}px`;
+      ink.style.top = `${y - 50}px`;
+      ink.style.backgroundColor = color;
+      ink.style.transition = 'none';
+      ink.style.transform = 'scale(0)';
+      ink.style.opacity = '1';
+
+      requestAnimationFrame(() => {
+        ink.style.transition = 'transform 0.8s ease-out, opacity 0.5s ease';
+        ink.style.transform = 'scale(30)';
+      });
+
+      // Apply background after animation starts
+      setTimeout(() => {
+        if (activeColor === color) {
+          body.style.backgroundColor = color;
+        }
+      }, 300);
+    });
+
+    logo.addEventListener('mouseleave', () => {
+      // Start fade-out animation
+      ink.style.opacity = '0';
+
+      // Schedule background reset only if not re-hovered
+      resetTimeout = setTimeout(() => {
+        if (activeColor === color) {
+          body.style.backgroundColor = defaultColor;
+          ink.style.transform = 'scale(0)';
+          activeColor = null;
+        }
+      }, 300); // Match fade-out duration
+    });
+  });
+});
+
+</script>
+</html>
