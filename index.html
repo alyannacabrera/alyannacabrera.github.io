@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-    <title>Creative Portfolio</title>
+    <title>Alyanna Cabrera</title>
     <link href="https://fonts.googleapis.com/css2?family=General+Sans:wght@400;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
     <style>
@@ -36,7 +36,6 @@
             display: flex;
             justify-content: space-between;
             align-items: flex-start;
-            margin-bottom: 80px;
             flex-wrap: wrap; /* Allow navigation to wrap on smaller screens */
         }
         .logo {
@@ -47,7 +46,7 @@
         .nav-vertical {
             list-style: none;
             display: flex;
-            flex-direction: column;
+            flex-direction: row;
             align-items: flex-end;
             gap: 20px;
         }
@@ -286,11 +285,64 @@
             opacity: 0.8;
         }
 
+        /* Projects Content Area Styling */
+        .project-content-area {
+            min-height: 500px; /* Give it some height for visibility */
+            background-color: #1a1a1a;
+            border-radius: 10px;
+            padding: 30px 30px 0px 30px; /* Adjusted padding */
+            max-width: 1000px; /* Adjusted max-width */
+            display: none; /* Initially hidden, controlled by JS */
+            flex-direction: column; /* Stack content vertically */
+            gap: 30px; /* Space between sections */
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.4);
+            margin: 0 auto; /* Center the content area */
+        }
+        .project-header h2 {
+            font-size: clamp(1.2rem, 2vw, 2rem);
+            font-weight: 700;
+            color: #e5e5e5;
+            margin-bottom: 10px;
+            line-height: 1.1;
+        }
+        .project-header p {
+            font-size: 1rem;
+            color: #aaa;
+            line-height: 1.6;
+            max-width: 800px;
+        }
+        .project-main-content {
+            width: 80%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background-color: #000; /* Dark background for the visual */
+            border-radius: 8px;
+            margin: 0 auto; /* Center the content */
+            overflow: hidden; /* Ensures content inside respects border-radius */
+        }
+        .project-visual {
+            width: 100%;
+            padding-top: 56.25%; /* 16:9 Aspect Ratio (height / width * 100%) */
+            position: relative;
+        }
+        .project-visual img {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover; /* Cover the area, cropping if necessary */
+            border-radius: 8px;
+        }
 
         /* Responsive Adjustments */
         @media (max-width: 900px) {
             .logo-grid {
                 grid-template-columns: repeat(3, 1fr); /* 3 columns for medium screens */
+            }
+            .eyes {
+                display: none; /* Hide eyes on medium screens */
             }
         }
 
@@ -301,7 +353,6 @@
             nav {
                 flex-direction: column; /* Stack nav items */
                 align-items: center; /* Center logo and nav links */
-                margin-bottom: 40px; /* Reduce margin */
             }
             .nav-vertical {
                 position: static; /* Remove absolute positioning */
@@ -311,6 +362,7 @@
                 gap: 15px; /* Adjust gap */
             }
             .hero {
+                margin-top: 80px; /* Reduce margin */
                 flex-direction: column;
                 text-align: center;
             }
@@ -389,9 +441,9 @@
         <nav>
             <div class="logo">Alyanna Cabrera</div>
             <ul class="nav-vertical">
-                <li><a href="#" class="active">ABOUT</a></li>
-                <li><a href="#">PROJECTS</a></li>
-                <li><a href="#">CONTACT</a></li>
+                <li><a href="#" id="about-link" class="active">ABOUT</a></li>
+                <li><a href="#" id="projects-link">PROJECTS</a></li>
+                <li><a href="#" id="contact-link">CONTACT</a></li>
             </ul>
         </nav>
 
@@ -426,8 +478,25 @@
                 <div class="pupil"></div>
             </div>
         </div>
+        <!-- New blank div for project content, initially hidden -->
+    <div id="project-content-area" class="project-content-area">
+            <div class="project-header">
+                <h2>Project Name</h2>
+                <p>Time Period</p>
+            </div>
+            <div class="project-main-content">
+                <!-- Placeholder for video or image. You can replace the img tag with an iframe for YouTube/Vimeo. -->
+                <div class="project-visual">
+                    <img src="https://placehold.co/800x450/1a1a1a/cccccc?text=Project+Visual" alt="Test Hub Next Interface">
+                    <!-- Example for embedding a YouTube video:
+                    <iframe src="https://www.youtube.com/embed/yourvideoid" allowfullscreen></iframe>
+                    -->
+                </div>
+            </div>
+        </div>
     </div>
     <div class="background-spread"></div>
+    
 
 </body>
 <script>
@@ -578,6 +647,52 @@
                 }, 300); // Match fade-out duration
             });
         });
+
+        // --- New Functionality for "PROJECTS" link ---
+        const projectsLink = document.getElementById('projects-link');
+        const aboutLink = document.getElementById('about-link'); // Get the about link for active state management
+        const heroSection = document.querySelector('.hero');
+        const eyesSection = document.querySelector('.eyes');
+        const projectContentArea = document.getElementById('project-content-area');
+
+        // Ensure all required elements are found before adding event listeners
+        if (projectsLink && heroSection && eyesSection && projectContentArea) {
+            // Event listener for the "PROJECTS" link
+            projectsLink.addEventListener('click', (event) => {
+                event.preventDefault(); // Prevent default link behavior (page refresh)
+
+                // Hide hero and eyes sections
+                heroSection.style.display = 'none';
+                eyesSection.style.display = 'none';
+
+                // Display the new project content area
+                projectContentArea.style.display = 'flex'; // Use flex to center content inside if needed
+
+                // Update active navigation link: remove active from ABOUT, add to PROJECTS
+                if (aboutLink) {
+                    aboutLink.classList.remove('active');
+                }
+                projectsLink.classList.add('active');
+            });
+
+            // Event listener for the "ABOUT" link to revert the view
+            if (aboutLink) {
+                aboutLink.addEventListener('click', (event) => {
+                    event.preventDefault(); // Prevent default link behavior
+
+                    // Show hero and eyes sections (using their original display properties)
+                    heroSection.style.display = 'flex';
+                    eyesSection.style.display = 'flex';
+
+                    // Hide the project content area
+                    projectContentArea.style.display = 'none';
+
+                    // Update active navigation link: remove active from PROJECTS, add to ABOUT
+                    projectsLink.classList.remove('active');
+                    aboutLink.classList.add('active');
+                });
+            }
+        }
     });
 </script>
 </html>
