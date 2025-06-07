@@ -287,7 +287,7 @@
 
         /* Projects Content Area Styling */
         .project-content-area {
-            min-height: 500px; /* Give it some height for visibility */
+            max-height: 500px; /* Give it some height for visibility */
             background-color: #1a1a1a;
             border-radius: 10px;
             padding: 30px 30px 0px 30px; /* Adjusted padding */
@@ -297,6 +297,32 @@
             gap: 30px; /* Space between sections */
             box-shadow: 0 4px 20px rgba(0, 0, 0, 0.4);
             margin: 0 auto; /* Center the content area */
+            overflow: hidden; /* Ensures content inside respects max-height and border-radius */
+            transition: box-shadow 0.3s ease-in-out, border-color 0.3s ease-in-out; /* Smooth transition for glow */
+            border: 2px solid transparent; /* Initial transparent border for glow */
+        }
+
+        /* Project content area glow on hover */
+        .project-content-area:hover {
+            box-shadow: 0 0 25px rgba(255, 255, 255, 0.7); /* Glow effect with whitish color on hover */
+            border-color: #ffffff; /* Change border color to white on hover */
+            animation: glowingBorder 1.5s infinite alternate; /* Apply glowing animation */
+        }
+
+        /* Keyframes for glowing border animation */
+        @keyframes glowingBorder {
+            0% {
+                border-color: #ffffff; /* Start with white border */
+                box-shadow: 0 0 10px rgba(255, 255, 255, 0.5); /* White shadow */
+            }
+            50% {
+                border-color: #f0f0f0; /* Slightly off-white for mid-point */
+                box-shadow: 0 0 20px rgba(255, 255, 255, 0.8); /* Brighter white shadow */
+            }
+            100% {
+                border-color: #ffffff; /* End with white border */
+                box-shadow: 0 0 10px rgba(255, 255, 255, 0.5); /* White shadow */
+            }
         }
         .project-header h2 {
             font-size: clamp(1.2rem, 2vw, 2rem);
@@ -304,6 +330,30 @@
             color: #e5e5e5;
             margin-bottom: 10px;
             line-height: 1.1;
+        }
+        .project-skills {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px; /* Space between skill tags */
+            margin-top: 10px; /* Space below project title */
+            margin-bottom: 20px;
+        }
+
+        .skill-tag {
+            background-color: #333; /* Darker background for tags */
+            color: #fff; /* White text for contrast */
+            padding: 8px 15px;
+            border-radius: 20px; /* Rounded pill shape */
+            font-size: 0.85rem;
+            font-weight: 600;
+            transition: background-color 0.3s ease, transform 0.2s ease, box-shadow 0.3s ease;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+        }
+
+        .skill-tag:hover {
+            background-color: #ff4c2b; /* Highlight color on hover */
+            transform: translateY(-2px); /* Slight lift */
+            box-shadow: 0 4px 8px rgba(255, 76, 43, 0.4); /* Glow on hover */
         }
         .project-header p {
             font-size: 1rem;
@@ -315,25 +365,22 @@
             width: 80%;
             display: flex;
             justify-content: center;
-            align-items: center;
             background-color: #000; /* Dark background for the visual */
-            border-radius: 8px;
+            border-radius: 8px 8px 0 0;
             margin: 0 auto; /* Center the content */
             overflow: hidden; /* Ensures content inside respects border-radius */
         }
         .project-visual {
             width: 100%;
-            padding-top: 56.25%; /* 16:9 Aspect Ratio (height / width * 100%) */
-            position: relative;
+            height: auto; /* Allows the height to be determined by the image content */
+            overflow: hidden; /* Ensures any cropping happens within this container */
         }
+
         .project-visual img {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            object-fit: cover; /* Cover the area, cropping if necessary */
-            border-radius: 8px;
+            width: 100%; /* Make the image fill the width of its container */
+            height: 100%; /* Make the image fill the height of its container */
+            display: block; /* Helps with consistent rendering and removes extra space below the image */
+            object-position: center top; /* Optional: Adjust where the "cover" starts from. 'center top' will make sure the top of the image is always visible and the bottom is cropped. 'center bottom' would crop the top. */
         }
 
         /* Responsive Adjustments */
@@ -405,6 +452,16 @@
             .download-buttons {
                 justify-content: center; /* Center buttons */
             }
+            .project-header h2 {
+                font-size: 1.5rem; /* Smaller heading for tablets/small laptops */
+            }
+            .project-header p {
+                font-size: 0.9rem; /* Smaller paragraph text */
+            }
+            .project-skills .skill-tag {
+                font-size: 0.75rem; /* Smaller skill tags */
+                padding: 6px 12px; /* Adjust padding */
+            }
         }
 
         @media (max-width: 480px) {
@@ -422,6 +479,20 @@
             .logo {
                 width: 70px; /* Slightly smaller logos */
                 height: 70px;
+            }
+            .project-header h2 {
+                font-size: 1.2rem; /* Even smaller heading for mobile phones */
+            }
+            .project-header p {
+                font-size: 0.8rem; /* Even smaller paragraph text */
+            }
+            .project-skills .skill-tag {
+                font-size: 0.7rem; /* Even smaller skill tags */
+                padding: 5px 10px; /* Adjust padding */
+            }
+            .project-content-area {
+                padding: 20px 20px 0px 20px;
+                gap: 0px;
             }
         }
     </style>
@@ -482,13 +553,19 @@
         <!-- New blank div for project content, initially hidden -->
     <div id="project-content-area" class="project-content-area">
             <div class="project-header">
-                <h2>Project Name</h2>
-                <p>Time Period</p>
+                <h2>Lasallian's Food To Pick</h2>
+                <div class="project-skills">
+                    <span class="skill-tag">UI/UX Design</span>
+                    <span class="skill-tag">Figma</span>
+                    <span class="skill-tag">HTML</span>
+                    <span class="skill-tag">CSS</span>
+                    <span class="skill-tag">JavaScript</span>
+                </div>
             </div>
             <div class="project-main-content">
                 <!-- Placeholder for video or image. You can replace the img tag with an iframe for YouTube/Vimeo. -->
                 <div class="project-visual">
-                    <img src="https://placehold.co/800x450/1a1a1a/cccccc?text=Project+Visual" alt="Test Hub Next Interface">
+                    <img src="foodtopick.png" alt="Food to Pick">
                     <!-- Example for embedding a YouTube video:
                     <iframe src="https://www.youtube.com/embed/yourvideoid" allowfullscreen></iframe>
                     -->
