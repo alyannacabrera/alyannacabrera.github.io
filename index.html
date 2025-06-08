@@ -286,6 +286,11 @@
         }
 
         /* Projects Content Area Styling */
+        .projects {
+            display: flex;
+            gap: 50px;
+            flex-direction: column;
+        }
         .project-content-area {
             max-height: 500px; /* Give it some height for visibility */
             background-color: #1a1a1a;
@@ -551,25 +556,41 @@
             </div>
         </div>
         <!-- New blank div for project content, initially hidden -->
-    <div id="project-content-area" class="project-content-area">
-            <div class="project-header">
-                <h2>Lasallian's Food To Pick</h2>
-                <div class="project-skills">
-                    <span class="skill-tag">HTML</span>
-                    <span class="skill-tag">CSS</span>
-                    <span class="skill-tag">JavaScript</span>
+        <div class="projects">
+            <div class="project-content-area">
+                <div class="project-header">
+                    <h2>Lasallian's Food To Pick</h2>
+                    <div class="project-skills">
+                        <span class="skill-tag">HTML</span>
+                        <span class="skill-tag">CSS</span>
+                        <span class="skill-tag">JavaScript</span>
+                        <span class="skill-tag">Node.js</span>
+                        <span class="skill-tag">MongoDB</span>
+                    </div>
+                </div>
+                <div class="project-main-content">
+                    <div class="project-visual">
+                        <img src="foodtopick.png" alt="Food to Pick">
+                    </div>
                 </div>
             </div>
-            <div class="project-main-content">
-                <!-- Placeholder for video or image. You can replace the img tag with an iframe for YouTube/Vimeo. -->
-                <div class="project-visual">
-                    <img src="foodtopick.png" alt="Food to Pick">
-                    <!-- Example for embedding a YouTube video:
-                    <iframe src="https://www.youtube.com/embed/yourvideoid" allowfullscreen></iframe>
-                    -->
+            <div class="project-content-area">
+                <div class="project-header">
+                    <h2>Sponsor Record Management System</h2>
+                    <div class="project-skills">
+                        <span class="skill-tag">React</span>
+                        <span class="skill-tag">Next.js</span>
+                        <span class="skill-tag">MongoDB</span>
+                    </div>
+                </div>
+                <div class="project-main-content">
+                    <div class="project-visual">
+                        <img src="pearlsbuck.png" alt="Sponsor Record Management System">
+                    </div>
                 </div>
             </div>
         </div>
+        
     </div>
     <div class="background-spread"></div>
     
@@ -729,10 +750,11 @@
         const aboutLink = document.getElementById('about-link'); // Get the about link for active state management
         const heroSection = document.querySelector('.hero');
         const eyesSection = document.querySelector('.eyes');
-        const projectContentArea = document.getElementById('project-content-area');
+        // Get all project content areas by class name
+        const projectContentAreas = document.querySelectorAll('.project-content-area');
 
         // Ensure all required elements are found before adding event listeners
-        if (projectsLink && heroSection && eyesSection && projectContentArea) {
+        if (projectsLink && heroSection && eyesSection && projectContentAreas.length > 0) {
             // Event listener for the "PROJECTS" link
             projectsLink.addEventListener('click', (event) => {
                 event.preventDefault(); // Prevent default link behavior (page refresh)
@@ -741,8 +763,10 @@
                 heroSection.style.display = 'none';
                 eyesSection.style.display = 'none';
 
-                // Display the new project content area
-                projectContentArea.style.display = 'flex'; // Use flex to center content inside if needed
+                // Display ALL project content areas
+                projectContentAreas.forEach(area => {
+                    area.style.display = 'flex'; // Use flex to center content inside if needed
+                });
 
                 // Update active navigation link: remove active from ABOUT, add to PROJECTS
                 if (aboutLink) {
@@ -764,8 +788,10 @@
                         eyesSection.style.display = 'flex';
                     }
 
-                    // Hide the project content area
-                    projectContentArea.style.display = 'none';
+                    // Hide ALL project content areas
+                    projectContentAreas.forEach(area => {
+                        area.style.display = 'none';
+                    });
 
                     // Update active navigation link: remove active from PROJECTS, add to ABOUT
                     projectsLink.classList.remove('active');
