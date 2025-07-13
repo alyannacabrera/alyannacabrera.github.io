@@ -38,8 +38,15 @@
             justify-content: space-between;
             align-items: flex-start;
             flex-wrap: wrap; /* Allow navigation to wrap on smaller screens */
+            position: sticky; /* Make the navigation sticky */
+            top: 0; /* Stick to the top of the viewport */
+            background-color: transparent; /* Ensure background for sticky nav */
+            z-index: 1000; /* Ensure it stays on top of other content */
+            padding: 20px 40px; /* Add padding to the sticky nav */
+            margin: 0 -40px; /* Counteract container padding for full width sticky nav */
+            width: calc(100% + 80px); /* Adjust width to cover full screen */
         }
-        .logo {
+        nav .logo {
             color: #e5e5e5;
             font-weight: 700;
             font-size: 18px;
@@ -92,7 +99,7 @@
             align-items: center;
             justify-content: space-between;
             flex-wrap: wrap;
-            padding-bottom: 120px; /* Add padding to prevent content being hidden by eyes */
+            padding-bottom: 120px; /*Add padding to prevent content being hidden by eyes */
         }
         .text-section {
             flex: 1;
@@ -188,7 +195,7 @@
             flex-direction: row;
             column-gap: 20px;
             position: fixed;
-            bottom: 20px;
+            /* bottom: 20px; */
             left: 0; /* Align to left to ensure proper centering */
             right: 0; /* Align to right to ensure proper centering */
             z-index: 5; /* Keep eyes above background-spread but below socials */
@@ -231,6 +238,57 @@
             color: #ff4c2b;
         }
 
+        /* Resume Section */
+        .resume {
+            margin-top: 100px;
+            padding: 40px;
+            background-color: #1a1a1a;
+            border-radius: 10px;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.4);
+            max-width: 1000px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .resume-section {
+            margin-bottom: 40px;
+        }
+
+        .resume-section h3 {
+            font-size: clamp(1.2rem, 2vw, 1.8rem);
+            color: #ff4c2b;
+            margin-bottom: 15px;
+            border-bottom: 2px solid #333;
+            padding-bottom: 5px;
+        }
+
+        .resume-item {
+            margin-bottom: 20px;
+        }
+
+        .resume-item h4 {
+            font-size: clamp(1rem, 1.5vw, 1.3rem);
+            color: #e5e5e5;
+            margin-bottom: 5px;
+        }
+
+        .resume-item p {
+            font-size: 0.9rem;
+            color: #aaa;
+            line-height: 1.5;
+        }
+
+        .resume-item ul {
+            list-style: disc;
+            margin-left: 20px;
+            color: #aaa;
+            font-size: 0.9rem;
+        }
+
+        .resume-item ul li {
+            margin-bottom: 5px;
+        }
+
         /* Animation */
         @keyframes fadeIn {
             from {
@@ -245,7 +303,7 @@
 
         /* Skills */
         .logo-heading {
-          display: none;
+            display: none;
         }
         .logo-grid {
             display: grid;
@@ -257,7 +315,7 @@
             z-index: 2;
             position: relative;
         }
-        .logo {
+        .logo-grid .logo {
             width: 80px;
             height: 80px;
             cursor: pointer;
@@ -314,6 +372,107 @@
             box-shadow: 0 0 25px rgba(255, 255, 255, 0.7); /* Glow effect with whitish color on hover */
             border-color: #ffffff; /* Change border color to white on hover */
             animation: glowingBorder 1.5s infinite alternate; /* Apply glowing animation */
+        }
+
+        /* Contact Information Styling */
+        /* Contact Section */
+        .contact-section {
+            margin-top: 80px;
+            padding: 40px;
+            background-color: #1a1a1a;
+            border-radius: 10px;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.4);
+            max-width: 1000px;
+            margin-left: auto;
+            margin-right: auto;
+            display: none; /* Hidden by default */
+        }
+
+        .contact-section h2 {
+            font-size: clamp(1.8rem, 3vw, 2.5rem);
+            color: #e5e5e5;
+            margin-bottom: 30px;
+            text-align: center;
+        }
+
+        .contact-info {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+            margin-bottom: 40px;
+            text-align: center;
+        }
+
+        .contact-info p {
+            font-size: 1rem;
+            color: #aaa;
+        }
+
+        .contact-info p i {
+            margin-right: 10px;
+            color: #ff4c2b;
+        }
+
+        .contact-form {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+
+        .contact-form label {
+            font-size: 1rem;
+            color: #e5e5e5;
+            margin-bottom: 5px;
+            display: block;
+        }
+
+        .contact-form input[type="text"],
+        .contact-form input[type="email"],
+        .contact-form textarea {
+            width: 100%;
+            padding: 12px;
+            border: 1px solid #333;
+            border-radius: 5px;
+            background-color: #0f0f0f;
+            color: #e5e5e5;
+            font-family: 'General Sans', sans-serif;
+            font-size: 1rem;
+            transition: border-color 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .contact-form input[type="text"]:focus,
+        .contact-form input[type="email"]:focus,
+        .contact-form textarea:focus {
+            outline: none;
+            border-color: #ff4c2b;
+            box-shadow: 0 0 8px rgba(255, 76, 43, 0.5);
+        }
+
+        .contact-form textarea {
+            resize: vertical;
+            min-height: 120px;
+        }
+
+        .contact-form button {
+            background-color: #ff4c2b;
+            color: #0f0f0f;
+            padding: 12px 25px;
+            border-radius: 50px;
+            font-weight: 700;
+            font-size: 14px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            border: none;
+            cursor: pointer;
+            transition: background-color 0.3s ease, transform 0.2s ease, box-shadow 0.3s ease;
+            box-shadow: 0 4px 15px rgba(255, 76, 43, 0.4);
+            align-self: flex-start; /* Align button to the left */
+        }
+
+        .contact-form button:hover {
+            background-color: #ff6e4a;
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(255, 76, 43, 0.6);
         }
 
         /* Keyframes for glowing border animation */
@@ -511,10 +670,10 @@
 <body>
 
     <div class="socials-vertical">
-        <a href="https://www.linkedin.com/in/yourprofile" target="_blank" aria-label="LinkedIn">
+        <a href="https://www.linkedin.com/in/alyannacabrera" target="_blank" aria-label="LinkedIn">
             <i class="fab fa-linkedin-in"></i>
         </a>
-        <a href="https://x.com/yourprofile" target="_blank" aria-label="Github">
+        <a href="https://github.com/alyannacabrera" target="_blank" aria-label="Github">
             <i class="fab fa-github"></i>
         </a>
     </div>
@@ -530,7 +689,7 @@
             </ul>
         </nav>
 
-        <header class="hero">
+        <header class="hero" id="about-section">
             <div class="text-section">
                 <h1 class="headline"></h1>
                 <p class="subtext">
@@ -561,8 +720,97 @@
                 <div class="pupil"></div>
             </div>
         </div>
+        <section class="resume" id="resume-section">
+            <div class="resume-section">
+                <h3>Experience</h3>
+                <div class="resume-item">
+                    <h4>System Development Intern - Abenson Ventures, Inc.</h4>
+                    <p><em>May 2024 - July 2024</em></p>
+                    <ul>
+                        <li>Created frontend prototypes to establish design layouts and interactive elements.</li>
+                        <li>Developed and implemented the frontend using code to ensure functionality and responsiveness.</li>
+                        <li>Built reusable HTML components using JavaScript and vanilla CSS for consistent and efficient design.</li>
+                        <li>Analyzed and benchmarked current industry practices, identifying competitor strategies and areas for improvement at Abenson.</li>
+                        <li>Researched best practices, processes, and tools for code reviews to enhance efficiency and effectiveness.</li>
+                    </ul>
+                </div>
+                <div class="resume-item">
+                    <h4>Developer | Designer - Website for a Non-Governmental Organization</h4>
+                    <p><em>September 2023 - December 2023</em></p>
+                    <ul>
+                        <li>Designed and developed a cloud database for sponsored children's data, along with a digitized form for inputting and modifying sponsored child information.</li>
+                        <li>Created high-fidelity prototypes.</li>
+                        <li>Presented design concepts to clients and incorporated feedback into iterations.</li>
+                    </ul>
+                </div>
+                <div class="resume-item">
+                    <h4>Developer | Designer - Lasallian's Food to Pick</h4>
+                    <p><em>May 2023 - August 2023</em></p>
+                    <ul>
+                        <li>Designed and developed a website exploring diverse restaurants around De La Salle University-Manila (DLSU).</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="resume-section">
+                <h3>Education</h3>
+                <div class="resume-item">
+                    <h4>Bachelor of Science in Computer Science - De La Salle University</h4>
+                    <p><em>June 2021 - Present</em></p>
+                    <ul>
+                        <li>Specialization in Software Technology.</li>
+                        <li>Relevant coursework: Data Structures, Algorithms, Database Systems, UI/UX Principles.</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="resume-section">
+                <h3>Leadership and Activities</h3>
+                <div class="resume-item">
+                    <h4>Executive of Finance - University Student Government - Office of the Vice President (USG - OVPIA)</h4>
+                    <p><em>February 2023 - January 2024</em></p>
+                    <ul>
+                        <li>Contributed to six projects, each with an average duration of four months, by recording and processing all finance-related documents.</li>
+                    </ul>
+                </div>
+                <div class="resume-item">
+                    <h4>Executive of External Relations - DLSU - Microsoft Student Community (DLSU - MSC)</h4>
+                    <p><em>December 2021 - Present</em></p>
+                    <ul>
+                        <li>Looked for potential speakers for an event.</li>
+                        <li>Scouted and contacted nine experts regarding their opinions on Artificial Intelligence.</li>
+                    </ul>
+                </div>
+                <div class="resume-item">
+                    <h4>Other Affiliations</h4>
+                    <ul>
+                        <li>Research Member - DLSU Dr. Andrew L. Tan Data Science Institute (ALTDSI)</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="resume-section">
+                <h3>Skills and Interests</h3>
+                <div class="resume-item">
+                    <h4>Programming Languages:</h4>
+                    <p>C, C++, Java, Python, CSS, JavaScript, SQL, x86-64 Assembly</p>
+                </div>
+                <div class="resume-item">
+                    <h4>Web Technologies:</h4>
+                    <p>HTML, CSS, React, Node.js, Next.js, MongoDB, SQL</p>
+                </div>
+                <div class="resume-item">
+                    <h4>Tools:</h4>
+                    <p>Microsoft Office, Figma, Canva, Git</p>
+                </div>
+                <div class="resume-item">
+                    <h4>Language:</h4>
+                    <p>English (Fluent), Filipino (Native), Hokkien (Basic), Mandarin (Basic)</p>
+                </div>
+            </div>
+        </section>
         <!-- New blank div for project content, initially hidden -->
-        <div class="projects">
+        <div class="projects" id="projects-section">
             <div class="project-content-area">
                 <div class="project-header">
                     <h2>Lasallian's Food to Pick</h2>
@@ -656,7 +904,17 @@
                 </div>
             </div>
         </div>
-        
+        <!-- New blank div for contact, initially hidden -->
+        <div class="contact-section" id="contact-section">
+            <h2>Get in Touch</h2>
+            <div class="contact-info">
+                <p><i class="fas fa-phone"></i> 0976 333 0325</p>
+                <p><i class="fas fa-envelope"></i><a href="mailto:alyannacabrera02@gmail.com"> alyannacabrera02@gmail.com</a></p>
+                <p><i class="fab fa-linkedin-in"></i> <a href="https://www.linkedin.com/in/alyannacabrera" target="_blank">linkedin.com/in/alyannacabrera</a></p>
+                <p><i class="fab fa-github"></i> <a href="https://github.com/alyannacabrera" target="_blank">github.com/alyannacabrera</a></p>
+                <p><i class="fas fa-map-marker-alt"></i> Manila City, Metro Manila, Philippines</p>
+            </div>
+        </div>
     </div>
     <div class="background-spread"></div>
     
@@ -784,6 +1042,7 @@
 
                 // Use requestAnimationFrame for smooth re-transition
                 requestAnimationFrame(() => {
+                    document.querySelector('nav').style.backgroundColor = 'transparent'; // Set navbar background color to transparent
                     ink.style.transition = 'transform 0.8s ease-out, opacity 0.5s ease'; // Reapply transition
                     // Scale down for mobile devices
                     ink.style.transform = 'scale(20)'; // Adjusted scale for mobile
@@ -811,60 +1070,87 @@
             });
         });
 
-        // --- New Functionality for "PROJECTS" link ---
+        // Navigation logic to show/hide sections
+        const aboutLink = document.getElementById('about-link');
         const projectsLink = document.getElementById('projects-link');
-        const aboutLink = document.getElementById('about-link'); // Get the about link for active state management
-        const heroSection = document.querySelector('.hero');
-        const eyesSection = document.querySelector('.eyes');
-        // Get all project content areas by class name
+        const contactLink = document.getElementById('contact-link');
+
+        const aboutSection = document.getElementById('about-section');
+        const resumeSection = document.getElementById('resume-section');
+        const projectsSection = document.getElementById('projects-section');
+        const contactSection = document.getElementById('contact-section');
+
         const projectContentAreas = document.querySelectorAll('.project-content-area');
+        const eyesDiv = document.querySelector('.eyes');
 
-        // Ensure all required elements are found before adding event listeners
-        if (projectsLink && heroSection && eyesSection && projectContentAreas.length > 0) {
-            // Event listener for the "PROJECTS" link
-            projectsLink.addEventListener('click', (event) => {
-                event.preventDefault(); // Prevent default link behavior (page refresh)
 
-                // Hide hero and eyes sections
-                heroSection.style.display = 'none';
-                eyesSection.style.display = 'none';
-
-                // Display ALL project content areas
-                projectContentAreas.forEach(area => {
-                    area.style.display = 'flex'; // Use flex to center content inside if needed
-                });
-
-                // Update active navigation link: remove active from ABOUT, add to PROJECTS
-                if (aboutLink) {
-                    aboutLink.classList.remove('active');
-                }
-                projectsLink.classList.add('active');
-            });
-
-            // Event listener for the "ABOUT" link to revert the view
-            if (aboutLink) {
-                aboutLink.addEventListener('click', (event) => {
-                    event.preventDefault(); // Prevent default link behavior
-
-                    // Show hero and eyes sections (using their original display properties)
-                    heroSection.style.display = 'flex';
-                    if (window.matchMedia('(max-width: 768px)').matches) {
-                        eyesSection.style.display = 'none';
-                    } else {
-                        eyesSection.style.display = 'flex';
-                    }
-
-                    // Hide ALL project content areas
-                    projectContentAreas.forEach(area => {
-                        area.style.display = 'none';
-                    });
-
-                    // Update active navigation link: remove active from PROJECTS, add to ABOUT
-                    projectsLink.classList.remove('active');
-                    aboutLink.classList.add('active');
-                });
-            }
+        // Function to hide all content sections
+        function hideAllSections() {
+            aboutSection.style.display = 'none';
+            resumeSection.style.display = 'none';
+            projectsSection.style.display = 'none';
+            contactSection.style.display = 'none';
         }
+
+        // Function to remove active class from all nav links
+        function removeActiveClass() {
+            aboutLink.classList.remove('active');
+            projectsLink.classList.remove('active');
+            contactLink.classList.remove('active');
+        }
+
+        // Event listener for About link
+        aboutLink.addEventListener('click', (e) => {
+            e.preventDefault();
+            hideAllSections();
+            removeActiveClass();
+            aboutSection.style.display = 'flex'; /* Hero section is flex */
+            resumeSection.style.display = 'block'; /* Resume section is block */
+            aboutLink.classList.add('active');
+            window.scrollTo({ top: 0, behavior: 'smooth' }); // Scroll to top
+        });
+
+        // Event listener for Projects link
+        projectsLink.addEventListener('click', (e) => {
+            e.preventDefault();
+            hideAllSections();
+            removeActiveClass();
+            projectsSection.style.display = 'flex'; /* Projects section is flex */
+            projectContentAreas.forEach(area => {
+                area.style.display = 'flex'; // Show all project content areas
+            });
+            projectsLink.classList.add('active');
+            eyesDiv.style.display = 'none';
+            window.scrollTo({ top: 0, behavior: 'smooth' }); // Scroll to top
+        });
+
+        // Event listener for Contact link
+        contactLink.addEventListener('click', (e) => {
+            e.preventDefault();
+            hideAllSections();
+            removeActiveClass();
+            contactSection.style.display = 'block'; /* Contact section is block */
+            contactLink.classList.add('active');
+            eyesDiv.style.display = 'none';
+            window.scrollTo({ top: 0, behavior: 'smooth' }); // Scroll to top
+        });
+
+        // Initial display setup (show About and Resume by default)
+        hideAllSections();
+        aboutSection.style.display = 'flex';
+        resumeSection.style.display = 'block';
+        aboutLink.classList.add('active');
+
+        const navbar = document.querySelector('nav');
+        const scrollThreshold = 20; // Pixels scrolled down before hiding eyes
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > scrollThreshold) {
+                if (eyesDiv.style.display !== 'none') {
+                    eyesDiv.style.display = 'none'; // Hide eyes when scrolled down
+                }
+                navbar.style.backgroundColor = '#0f0f0f'; // Change navbar background color on scroll                
+            }
+        });
     });
 </script>
 </html>
