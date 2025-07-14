@@ -1106,6 +1106,7 @@
             aboutSection.style.display = 'flex'; /* Hero section is flex */
             resumeSection.style.display = 'block'; /* Resume section is block */
             aboutLink.classList.add('active');
+            document.querySelector('nav').style.backgroundColor = 'transparent'; // Reset navbar background color
             window.scrollTo({ top: 0, behavior: 'smooth' }); // Scroll to top
         });
 
@@ -1144,9 +1145,6 @@
         const scrollThreshold = 20; // Pixels scrolled down before hiding eyes
         window.addEventListener('scroll', () => {
             if (window.scrollY > scrollThreshold) {
-                if (eyesDiv.style.display !== 'none') {
-                    eyesDiv.style.display = 'none'; // Hide eyes when scrolled down
-                }
                 navbar.style.backgroundColor = '#0f0f0f'; // Change navbar background color on scroll                
             } else {
                 navbar.style.backgroundColor = 'transparent'; // Reset navbar background color
