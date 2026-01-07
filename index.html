@@ -956,6 +956,263 @@
             -webkit-box-orient: vertical;
             overflow: hidden;
         }
+
+        .medicall {
+            --m-primary: #2563eb;
+            --m-secondary: #6366f1;
+            --m-bg: #f8fafc;
+            --m-text: #0f172a;
+            --m-muted: #64748b;
+            --m-border: #f1f5f9;
+            
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+            background-color: var(--m-bg);
+            color: var(--m-text);
+            line-height: 1.6;
+            padding: 2rem 1rem;
+        }
+
+        .medicall .container {
+            max-width: 1000px;
+            margin: 0 auto;
+            background: #ffffff;
+            border-radius: 1.5rem;
+            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1);
+            overflow: hidden;
+            border: 1px solid var(--m-border);
+        }
+
+        /* Header Area */
+        .medicall .header {
+            background: linear-gradient(135deg, var(--m-primary), var(--m-secondary));
+            padding: 3rem;
+            color: #ffffff;
+        }
+
+        .medicall .header-logo {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            margin-bottom: 1rem;
+        }
+
+        .medicall .header-logo svg {
+            background: rgba(255, 255, 255, 0.2);
+            padding: 0.5rem;
+            border-radius: 0.5rem;
+            backdrop-filter: blur(4px);
+        }
+
+        .medicall .header h1 {
+            font-size: 2.5rem;
+            font-weight: 800;
+            margin: 0;
+        }
+
+        .medicall .header p {
+            font-size: 1.125rem;
+            max-width: 600px;
+            opacity: 0.9;
+            margin: 0;
+        }
+
+        /* Layout Grid */
+        .medicall .main-layout {
+            display: grid;
+            grid-template-columns: 1fr 320px;
+        }
+
+        @media (max-width: 768px) {
+            .medicall .main-layout {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        /* Content Area */
+        .medicall .content {
+            padding: 3rem;
+            border-right: 1px solid var(--m-border);
+        }
+
+        .medicall .section {
+            margin-bottom: 3rem;
+        }
+
+        .medicall .section-title {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            font-size: 1.5rem;
+            font-weight: 700;
+            margin-bottom: 1.5rem;
+        }
+
+        .medicall .section-title svg {
+            color: var(--m-primary);
+        }
+
+        /* Pillars List */
+        .medicall .pillar-card {
+            display: flex;
+            gap: 1rem;
+            padding: 1.25rem;
+            background: var(--m-bg);
+            border: 1px solid var(--m-border);
+            border-radius: 1rem;
+            margin-bottom: 1rem;
+            transition: border-color 0.2s;
+        }
+
+        .medicall .pillar-card:hover {
+            border-color: #bfdbfe;
+        }
+
+        .medicall .pillar-icon {
+            color: var(--m-primary);
+            flex-shrink: 0;
+        }
+
+        .medicall .pillar-info h3 {
+            font-size: 1rem;
+            font-weight: 600;
+            margin-bottom: 0.25rem;
+        }
+
+        .medicall .pillar-info p {
+            font-size: 0.875rem;
+            color: var(--m-muted);
+            margin: 0;
+        }
+
+        /* Image Display */
+        .medicall .image-wrapper {
+            background: #e2e8f0;
+            border-radius: 1rem;
+            overflow: hidden;
+            border: 4px solid var(--m-border);
+        }
+
+        .medicall .image-wrapper img {
+            width: 100%;
+            height: auto;
+            display: block;
+            transition: transform 0.5s;
+        }
+
+        .medicall .image-wrapper img:hover {
+            transform: scale(1.03);
+        }
+
+        .medicall .caption {
+            text-align: center;
+            font-size: 0.875rem;
+            color: var(--m-muted);
+            font-style: italic;
+            margin-top: 1rem;
+        }
+
+        /* Sidebar */
+        .medicall .sidebar {
+            padding: 3rem 2rem;
+            background: #fdfdfd;
+        }
+
+        .medicall .sidebar-label {
+            font-size: 0.75rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            margin-bottom: 1.5rem;
+            display: block;
+        }
+
+        .medicall .inspiration-card {
+            margin-bottom: 2rem;
+        }
+
+        .medicall .inspiration-img {
+            border-radius: 1rem;
+            overflow: hidden;
+            border: 1px solid var(--m-border);
+            margin-bottom: 0.75rem;
+        }
+
+        .medicall .inspiration-img img {
+            width: 100%;
+            filter: grayscale(100%);
+            transition: filter 0.3s;
+        }
+
+        .medicall .inspiration-card:hover img {
+            filter: grayscale(0%);
+        }
+
+        /* Feature Chips */
+        .medicall .feature-box {
+            background: #ffffff;
+            padding: 1.25rem;
+            border-radius: 1rem;
+            border: 1px solid var(--m-border);
+            margin-bottom: 1rem;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05);
+        }
+
+        .medicall .feature-tag {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            font-size: 0.75rem;
+            font-weight: 700;
+            color: var(--m-primary);
+            margin-bottom: 0.5rem;
+        }
+
+        .medicall .feature-box p {
+            font-size: 0.875rem;
+            color: var(--m-muted);
+            line-height: 1.4;
+            margin: 0;
+        }
+
+        .medicall .cta-btn {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.5rem;
+            width: 100%;
+            padding: 1rem;
+            background: var(--m-text);
+            color: #ffffff;
+            border: none;
+            border-radius: 1rem;
+            font-weight: 700;
+            cursor: pointer;
+            margin-top: 2rem;
+            transition: background 0.2s;
+        }
+
+        .medicall .cta-btn:hover {
+            background: #1e293b;
+        }
+
+        .iframe-container {
+            position: relative;
+            width: 100%;
+            padding-bottom: 56.25%; /* Ratio: 450/800 = 0.5625 */
+            height: 0;
+            overflow: hidden;
+            border-radius: 8px;
+            border: 1px solid rgba(0, 0, 0, 0.1);
+        }
+
+        .iframe-container iframe {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            border: 0;
+        }
         /* Responsive Adjustments */
         @media (max-width: 900px) {
             .logo-grid {
@@ -1666,7 +1923,7 @@
                     </div>
                 </div>
             </div>
-            <div class="project-content-area" data-project-id="4">
+            <div class="project-content-area" data-project-id="project-medicall">
                 <div class="project-header">
                     <h2>Medicall</h2>
                     <div class="project-skills">
@@ -1679,6 +1936,59 @@
                     <div class="project-visual">
                         <img src="medicall.png" alt="Medicall">
                     </div>
+                </div>
+                <div id="project-medicall" class="project-details-template">
+                    <div class="medicall" style="background-color: transparent;">
+                    <h2 class="modal-title">Medicall</h2>
+                    <div class="modal-tags">
+                        <span class="tag">UI/UX Design</span>
+                        <span class="tag">Prototyping</span>
+                        <span class="tag">Figma</span>
+                    </div>
+                    <p style="color: #999; line-height: 1.6; margin-bottom: 20px;">
+                        The core challenge was the fragmentation of the patient journey. Usually, finding a time, tracking prescriptions, and managing the day around the appointment happen in three different apps.                    </p>
+                    </p>
+            <div>
+                <div class="section">
+                    <h2 class="section-title">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="2" ry="2"></rect><line x1="3" y1="9" x2="21" y2="9"></line><line x1="9" y1="21" x2="9" y2="9"></line></svg>
+                        The Thought Process
+                    </h2>                    
+                    <div class="pillar-card">
+                        <div class="pillar-icon">
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg>
+                        </div>
+                        <div class="pillar-info">
+                            <h3>Efficient Scheduling</h3>
+                            <p>Inspired by When2Meet's availability overlay to eliminate back-and-forth friction.</p>
+                        </div>
+                    </div>
+
+                    <div class="pillar-card">
+                        <div class="pillar-icon">
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path></svg>
+                        </div>
+                        <div class="pillar-info">
+                            <h3>Centralized Records</h3>
+                            <p>A secure vault for prescriptions and history accessible during consultations.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="section">
+                    <h2 class="section-title">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path><circle cx="9" cy="7" r="4"></circle><path d="M23 21v-2a4 4 0 0 0-3-3.87"></path><path d="M16 3.13a4 4 0 0 1 0 7.75"></path></svg>
+                        Prototype Preview
+                    </h2>
+                <div class="iframe-container">
+                        <iframe 
+                            src="https://embed.figma.com/proto/cLCFKtX8NqenAKDM4jPGkx/SOLLAW1-Medicall-Prototype?node-id=36-10&scaling=scale-down&content-scaling=fixed&page-id=0%3A1&starting-point-node-id=36%3A10&show-proto-sidebar=1&embed-host=share" 
+                            allowfullscreen>
+                        </iframe>
+                    </div>
+                </div>
+            </div>
+                </div>
                 </div>
             </div>
             <div class="project-content-area" data-project-id="5">
