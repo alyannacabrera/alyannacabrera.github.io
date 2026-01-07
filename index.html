@@ -8,7 +8,6 @@
     <link href="https://fonts.googleapis.com/css2?family=General+Sans:wght@400;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
     <style>
-        /* Reset & Font */
         * {
             margin: 0;
             padding: 0;
@@ -1449,6 +1448,247 @@
                 gap: 0px;
             }
         }
+        .animohub .badge {
+            background: #064e3b;
+            color: #4ade80;
+            padding: 6px 16px;
+            border-radius: 99px;
+            font-size: 0.8rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            display: inline-block;
+            margin-bottom: 24px;
+        }
+
+        .animohub h1 {
+            font-size: clamp(2.5rem, 8vw, 4.5rem);
+            font-weight: 800;
+            line-height: 1.1;
+            margin-bottom: 24px;
+            background: linear-gradient(to bottom, #fff, #94a3b8);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .animohub .hero p {
+            font-size: 1.25rem;
+            color: #94a3b8;
+            max-width: 700px;
+            margin: 0 auto 40px;
+        }
+
+        .animohub .btn {
+            background: #006b3f;
+            color: white;
+            padding: 14px 32px;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: 700;
+            display: inline-block;
+            transition: transform 0.2s, background 0.2s;
+        }
+
+        .animohub .btn:hover {
+            background: #008a51;
+            transform: translateY(-2px);
+        }
+
+        /* Content Sections */
+        .animohub section {
+            padding: 100px 0;
+        }
+
+        .animohub .section-header {
+            margin-bottom: 60px;
+        }
+
+        .animohub .section-header h2 {
+            font-size: 2.5rem;
+            font-weight: 800;
+            margin-bottom: 16px;
+        }
+
+        /* Feature Grid */
+        .animohub .feature-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 24px;
+        }
+
+        .animohub .feature-card {
+            background: #181818;
+            border: 1px solid #282828;
+            padding: 40px;
+            border-radius: 20px;
+            transition: border-color 0.3s;
+        }
+
+        .animohub .feature-card:hover {
+            border-color: #006b3f;
+        }
+
+        .animohub .feature-card i {
+            font-size: 2.5rem;
+            color: #4ade80;
+            margin-bottom: 24px;
+            display: block;
+        }
+
+        .animohub .feature-card h3 {
+            font-size: 1.5rem;
+            margin-bottom: 16px;
+        }
+
+        .animohub .feature-card p {
+            color: #94a3b8;
+        }
+
+        /* Architecture Section */
+        .animohub .arch-display {
+            background: #181818;
+            border-radius: 24px;
+            padding: 60px;
+            border: 1px solid #282828;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 60px;
+            align-items: center;
+        }
+
+        .animohub .arch-list {
+            list-style: none;
+        }
+
+        .animohub .arch-list li {
+            margin-bottom: 24px;
+            display: flex;
+            gap: 16px;
+        }
+
+        .animohub .arch-list i {
+            color: #4ade80;
+            margin-top: 5px;
+        }
+
+        .animohub .arch-image {
+            background: #111;
+            border-radius: 16px;
+            padding: 20px;
+            border: 1px solid #282828;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.5);
+        }
+
+        .animohub .arch-image img {
+            width: 100%;
+            height: auto;
+            border-radius: 8px;
+        }
+
+        /* Table Section */
+        .animohub .table-wrap {
+            width: 100%;
+            overflow-x: auto;
+            background: #181818;
+            border-radius: 16px;
+            border: 1px solid #282828;
+        }
+
+        .animohub table {
+            width: 100%;
+            border-collapse: collapse;
+            min-width: 600px;
+        }
+
+        .animohub th {
+            background: #222;
+            text-align: left;
+            padding: 20px;
+            color: #4ade80;
+            font-weight: 700;
+        }
+
+        .animohub td {
+            padding: 20px;
+            border-top: 1px solid #282828;
+            color: #94a3b8;
+        }
+
+        /* Code Block */
+        .animohub .code-container {
+            background: #000;
+            padding: 30px;
+            border-radius: 12px;
+            font-family: 'Courier New', Courier, monospace;
+            font-size: 0.9rem;
+            color: #d4d4d4;
+            overflow-x: auto;
+            margin-top: 30px;
+            border: 1px solid #282828;
+        }
+
+        .animohub .code-keyword { color: #569cd6; }
+        .animohub .code-string { color: #ce9178; }
+        .animohub .code-comment { color: #6a9955; }
+
+        /* Showcase Grid - Updated to Flex Column */
+        .animohub .showcase-grid {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+            margin-top: 60px;
+            text-align: left;
+            max-width: 900px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .animohub .showcase-item {
+            position: relative;
+            background: #181818;
+            border-radius: 16px;
+            overflow: hidden;
+            border: 1px solid #282828;
+            height: 400px; /* Consistent height for column items */
+            width: 100%;
+        }
+
+        .animohub .showcase-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            opacity: 0.7;
+            transition: opacity 0.3s;
+        }
+
+        .animohub .showcase-item:hover img {
+            opacity: 1;
+        }
+
+        .animohub .showcase-label {
+            position: absolute;
+            bottom: 20px;
+            left: 20px;
+            background: rgba(0, 0, 0, 0.8);
+            padding: 8px 16px;
+            border-radius: 8px;
+            border: 1px solid #282828;
+            font-size: 0.85rem;
+            font-weight: 600;
+            color: #4ade80;
+        }
+
+        @media (max-width: 992px) {
+            .animohub .arch-display {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .animohub h1 { font-size: 3rem; }
+            .animohub .nav-links { display: none; }
+            .animohub .feature-card { padding: 30px; }
+        }
         /* Sections General */
         section {
             padding: 80px 0;
@@ -1703,30 +1943,35 @@
             <div class="resume-section">
                 <h3>Experience</h3>
                 <div class="resume-item">
+                    <h4>Software Developer (Contract) &mdash; Private Retail Client</h4>
+                    <p><em>August 2024 - December 2024</em></p>
+                    <ul>
+                        <li>Built a locally hosted inventory system using Node.js and EJS based on on-site workflow audits.</li>
+                        <li>Designed a reusable CSS component library to ensure UI consistency and reduce future development time.</li>
+                        <li>Leveraged jsPDF to automate invoice generation with precise alignment for legacy printer stationery.</li>
+                        <li>Optimized UX via responsive EJS templates and migrated legacy data to a modernized database.</li>
+                        <li>Led User Acceptance Testing (UAT) and iterative feature refinements to align with business needs.</li>
+                    </ul>
+                </div>
+                <div class="resume-item">
                     <h4>System Development Intern &mdash; Abenson Ventures, Inc.</h4>
                     <p><em>May 2024 - July 2024</em></p>
                     <ul>
-                        <li>Created frontend prototypes to establish design layouts and interactive elements.</li>
-                        <li>Developed and implemented the frontend using code to ensure functionality and responsiveness.</li>
-                        <li>Built reusable HTML components using JavaScript and vanilla CSS for consistent and efficient design.</li>
-                        <li>Analyzed and benchmarked current industry practices, identifying competitor strategies and areas for improvement at Abenson.</li>
-                        <li>Researched best practices, processes, and tools for code reviews to enhance efficiency and effectiveness.</li>
+                        <li>Developed high-fidelity frontend prototypes using EJS and JS to accelerate stakeholder approval.</li>
+                        <li>Engineered a reusable component library with Vanilla CSS, ensuring system-wide design consistency.</li>
+                        <li>Optimized web responsiveness via modern CSS techniques for seamless cross-device functionality.</li>
+                        <li>Conducted competitive benchmarking to identify and integrate high-impact features into the system.</li>
+                        <li>Standardized QA processes by implementing a code review framework to boost development efficiency.</li>
                     </ul>
                 </div>
                 <div class="resume-item">
-                    <h4>Developer | Designer &mdash; Website for a Non-Governmental Organization</h4>
+                    <h4>Full-Stack Developer &mdash; Pearl S. Buck Foundation Philippines Inc.</h4>
                     <p><em>September 2023 - December 2023</em></p>
                     <ul>
-                        <li>Designed and developed a cloud database for sponsored children's data, along with a digitized form for inputting and modifying sponsored child information.</li>
-                        <li>Created high-fidelity prototypes.</li>
-                        <li>Presented design concepts to clients and incorporated feedback into iterations.</li>
-                    </ul>
-                </div>
-                <div class="resume-item">
-                    <h4>Developer | Designer &mdash; Lasallian's Food to Pick</h4>
-                    <p><em>May 2023 - August 2023</em></p>
-                    <ul>
-                        <li>Designed and developed a website exploring diverse restaurants around De La Salle University-Manila (DLSU).</li>
+                        <li>Translated business requirements into high-fidelity prototypes.</li>
+                        <li>Developed a web-based Sponsor Record Management System for centralized sponsor data access.</li>
+                        <li>Engineered a responsive layout to ensure platform accessibility across all device types.</li>
+                        <li>Collaborated in an Agile/Scrum team of 7, utilizing sprint cycles to ensure on-time delivery.</li>
                     </ul>
                 </div>
             </div>
@@ -1747,24 +1992,31 @@
             <div class="resume-section">
                 <h3>Leadership and Activities</h3>
                 <div class="resume-item">
-                    <h4>Executive of Finance &mdash; University Student Government - Office of the Vice President (USG - OVPIA)</h4>
+                    <h4>Research Member &mdash; DLSU Dr. Andrew L. Tan Data Science Institute (ALTDSI)</h4>
                     <p><em>February 2023 - January 2024</em></p>
                     <ul>
-                        <li>Contributed to six projects, each with an average duration of four months, by recording and processing all finance-related documents.</li>
+                        <li>Published research in Springer’s LNNS series for the NLPIR 2025 conference (Scopus indexed).</li>
+                        <li>Studied LLM and Knowledge Graph (KG) synergy to reduce hallucinations in QA systems.</li>
+                        <li>Built an end-to-end KGQA pipeline involving KG construction and automated data collection.</li>
+                        <li>Curated a specialized dataset via stratified random sampling of official university communications.</li>
+                        <li>Achieved 93.14% accuracy in node generation during information extraction and graph creation phase.</li>
+                        <li>Validated system with 567 facts, yielding a 93.52% F1 score and a 94.86% Recall rate.</li>
                     </ul>
                 </div>
                 <div class="resume-item">
                     <h4>Executive of External Relations &mdash; DLSU - Microsoft Student Community (DLSU - MSC)</h4>
                     <p><em>December 2021 - September 2024</em></p>
                     <ul>
-                        <li>Looked for potential speakers for an event.</li>
-                        <li>Scouted and contacted nine experts regarding their opinions on Artificial Intelligence.</li>
+                        <li>Cultivated a strategic network of AI researchers and tech leads for Generative AI sessions.</li>
+                        <li>Built an expert database through targeted research to secure speakers for technical events.</li>
                     </ul>
                 </div>
                 <div class="resume-item">
-                    <h4>Other Affiliations</h4>
+                    <h4>Executive of Finance &mdash; University Student Government - Office of the Vice President (USG - OVPIA)</h4>
+                    <p><em>February 2023 - January 2024</em></p>
                     <ul>
-                        <li>Research Member &mdash; DLSU Dr. Andrew L. Tan Data Science Institute (ALTDSI)</li>
+                        <li>Managed end-to-end financial administration and budget tracking for university projects.</li>
+                        <li>Optimized procurement and liquidation processes in strict compliance with auditing standards.</li>
                     </ul>
                 </div>
             </div>
@@ -1936,7 +2188,7 @@
             </div>
             <div class="project-content-area" data-project-id="project-archbot">
                 <div class="project-header">
-                    <h2>ArchBot</h2>
+                    <h2>ArchBot: University Knowledge Graph & Chatbot</h2>
                     <div class="project-skills">
                         <span class="skill-tag">Python</span>
                         <span class="skill-tag">Neo4j</span>
@@ -1949,11 +2201,11 @@
                     </div>
                 </div>
                 <div id="project-archbot" class="project-details-template">
-                    <h2 class="modal-title">Archbot</h2>
+                    <h2 class="modal-title">ArchBot: University Knowledge Graph & Chatbot</h2>
                     <div class="modal-tags">
                         <span class="tag">Python</span>
                         <span class="tag">Neo4j</span>
-                        <span class="tag">MongoDB</span>
+                        <span class="tag">Gemini 2.0 Flash</span>
                     </div>
                     <div class="archbot">
                         <div class="container main-content">
@@ -2052,9 +2304,9 @@
                     </div>
                 </div>
             </div>
-            <div class="project-content-area" data-project-id="4">
+            <div class="project-content-area" data-project-id="project-animohub">
                 <div class="project-header">
-                    <h2>AnimoHub</h2>
+                    <h2>AnimoHub: Distributed Fault-Tolerant Enrollment System</h2>
                     <div class="project-skills">
                         <span class="skill-tag">C#</span>
                         <span class="skill-tag">SQL</span>
@@ -2064,6 +2316,127 @@
                 <div class="project-main-content">
                     <div class="project-visual">
                         <img src="animohub.png" alt="AnimoHub">
+                    </div>
+                </div>
+                <div id="project-animohub" class="project-details-template">
+                    <h2 class="modal-title">AnimoHub: Distributed Fault-Tolerant Enrollment System</h2>
+                    <div class="modal-tags">
+                        <span class="tag">C#</span>
+                        <span class="tag">SQL</span>
+                        <span class="tag">Distributed System</span>
+                    </div>
+                    <div class="animohub">
+                        <div>
+                            <div class="container">
+                                <div class="section-header">
+                                    <h2>System Overview</h2>
+                                    <p style="color: #94a3b8; max-width: 600px;">A web-based online enrollment system built with a distributed architecture for fault tolerance. It uses the MVC pattern, with the View on a dedicated node and Controllers/APIs on separate nodes. Services run on networked virtual machines or bare-metal nodes, ensuring that a node failure only impacts its specific function, while the rest of the system remains operational.</p>
+                                </div>
+
+                                <div class="showcase-grid">
+                                    <div class="showcase-item item-main">
+                                        <img src="animohub2.gif" alt="View and Enroll Course Page">
+                                        <div class="showcase-label">
+                                            <span>01. View and Enroll Course</span>
+                                        </div>
+                                    </div>
+                                    <div class="showcase-item item-side-1">
+                                        <img src="animohub3.gif" alt="View and Upload Grades Page">
+                                        <div class="showcase-label">
+                                            <span>02. View and Upload Grades</span>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="feature-grid">
+                                    <div class="feature-card">
+                                        <i class="fa-solid fa-server"></i>
+                                        <h3>Service Isolation</h3>
+                                        <p>API and View nodes are separated across networked virtual or bare-metal machines to localize potential failures.</p>
+                                    </div>
+                                    <div class="feature-card">
+                                        <i class="fa-solid fa-database"></i>
+                                        <h3>Data Redundancy</h3>
+                                        <p>Each node utilizes its own local SQLite database, ensuring the system never relies on a single central data point.</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+    <section>
+        <div>
+            <div class="arch-display">
+                <div class="container">
+                    <span class="badge" style="background: #111;">Tech Stack</span>
+                    <h2 style="margin-top: 10px;">The Node Structure</h2>
+                    <ul class="arch-list">
+                        <li>
+                            <i class="fa-solid fa-circle-check"></i>
+                            <div>
+                                <strong>Presentation Layer:</strong>
+                                <p>ASP.NET Core MVC View Node coordinating all background API calls.</p>
+                            </div>
+                        </li>
+                        <li>
+                            <i class="fa-solid fa-circle-check"></i>
+                            <div>
+                                <strong>Logic Isolation:</strong>
+                                <p>Controllers and logic are separated from the UI layer into discrete executable projects.</p>
+                            </div>
+                        </li>
+                        <li>
+                            <i class="fa-solid fa-circle-check"></i>
+                            <div>
+                                <strong>Fail-Fast Design:</strong>
+                                <p>The MVC frontend detects API timeouts instantly and triggers graceful degradation UIs.</p>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+                <div class="arch-image">
+                    <img src="animohub1.png" alt="Server Architecture Visualization">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section>
+        <div class="container">
+            <div class="section-header">
+                <h2>Fault Scenario Analysis</h2>
+                <p style="color: #94a3b8;">Measuring the impact of service degradation across the AnimoHub ecosystem.</p>
+            </div>
+
+            <div class="table-wrap">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Failing Node</th>
+                            <th>Impact on System</th>
+                            <th>Recovery Strategy</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><strong>Grade API</strong></td>
+                            <td>Partial Outage: Only grade viewing is disabled.</td>
+                            <td>Continue allowing Logins and Enrollments.</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Auth API</strong></td>
+                            <td>High Impact: New logins prevented.</td>
+                            <td>Rely on existing JWT tokens for active sessions.</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Course API</strong></td>
+                            <td>Operational Outage: Enrollment disabled.</td>
+                            <td>Maintain user access to personal profiles/grades.</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </section>
                     </div>
                 </div>
             </div>
